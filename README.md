@@ -9,7 +9,6 @@ Backend API para simulación de propagación de incendios forestales utilizando 
 - **WebSocket en Tiempo Real**: Updates en vivo del estado de las simulaciones
 - **Múltiples Tipos de Vegetación**: Bosque, pastizal, matorral, agrícola, urbano
 - **Factores Ambientales**: Viento, humedad, pendiente del terreno
-- **Gestión de Escenarios**: Guardar y cargar configuraciones de simulación
 
 ## 🚀 Inicio Rápido
 

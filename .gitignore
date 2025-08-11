@@ -1,0 +1,50 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+env/
+.venv/
+.env
+
+# FastAPI-specific
+instance/
+*.db
+*.sqlite3
+
+# Pytest
+.cache/
+.pytest_cache/
+
+# VS Code
+.vscode/
+
+# Environment files
+*.env
+.env.*
+
+# Logs
+*.log
+
+# MacOS and general
+.DS_Store
+*.swp
+
+# Coverage reports
+htmlcov/
+.coverage
+coverage.xml
+*.cover
+
+# Mypy
+.mypy_cache/
+
+# Pylint
+.pylint.d/
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
