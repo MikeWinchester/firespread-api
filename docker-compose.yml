@@ -1,0 +1,55 @@
+version: '3.8'
+
+services:
+  firespread-backend:
+    build: .
+    container_name: firespread-backend
+    ports:
+      - "8000:8000"
+    environment:
+      - ENVIRONMENT=development
+      - DEBUG=true
+      - HOST=0.0.0.0
+      - PORT=8000
+      - LOG_LEVEL=INFO
+      - MAX_SIMULATIONS=50
+      - MAX_CONCURRENT_SIMULATIONS=5
+      - MAX_SIMULATION_TIME=600
+    volumes:
+      - ./app:/app/app:ro  # Mount for development (read-only)
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+  # Optional: Redis for caching (uncomment if needed)
+  # redis:
+  #   image: redis:7-alpine
+  #   container_name: firespread-redis
+  #   ports:
+  #     - "6379:6379"
+  #   restart: unless-stopped
+  #   command: redis-server --appendonly yes
+  #   volumes:
+  #     - redis_data:/data
+
+  # Optional: PostgreSQL for persistence (uncomment if needed)
+  # postgres:
+  #   image: postgres:15-alpine
+  #   container_name: firespread-postgres
+  #   environment:
+  #     - POSTGRES_DB=firespread
+  #     - POSTGRES_USER=firespread
+  #     - POSTGRES_PASSWORD=firespread_password
+  #   ports:
+  #     - "5432:5432"
+  #   volumes:
+  #     - postgres_data:/var/lib/postgresql/data
+  #   restart: unless-stopped
+
+# volumes:
+#   redis_data:
+#   postgres_data:
